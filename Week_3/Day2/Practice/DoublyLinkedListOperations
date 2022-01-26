@@ -1,0 +1,62 @@
+package week3.Day2.Assignment;
+
+import java.util.Scanner;
+
+public class StackAssignment {
+
+	static int top=-1;
+	static int max=Integer.MIN_VALUE;
+	static int maxArray[];
+	static int maxCounter=-1;
+	static int stack[];
+	public static void push(int ele) {
+		if(ele>max) max=ele;
+		stack[++top]=ele;
+	}
+	public static int pop() {
+		int removedItem=stack[top--];
+		if(removedItem==max)
+    	return removedItem;
+	}
+	public static int getMax() {
+		return max;
+	}
+	public static void main(String[] args) {
+		System.out.println("Enter the number of operations");
+		Scanner sc=new Scanner(System.in);
+		Scanner st=new Scanner(System.in);
+		int n=sc.nextInt();
+		String operations[]=new String[n];
+		stack=new int[n];
+		maxArray=new int[n];
+		for(int i=0;i<n;i++) {
+			operations[i]=st.nextLine();
+		}
+		for(int i=0;i<n;i++) {
+			System.out.println(operations[i]);
+		}
+		
+		for(int i=0;i<n;i++) {
+			String[] splited = operations[i].split(" ");
+			 
+				if(splited[0].equals("1")) {
+					push(Integer.parseInt(splited[1]));
+				}
+			
+			else {
+				if(splited[0].equals("2")) {
+					pop();
+				}
+				else if(splited[0].equals("3")) {
+					int max=getMax();
+					maxArray[++maxCounter]=max;
+					
+				}
+			}
+		}
+//		for(int i=0;i<maxCounter;i++) {
+//			System.out.println("Max is "+maxArray[i]);
+//		}
+	}
+
+}
