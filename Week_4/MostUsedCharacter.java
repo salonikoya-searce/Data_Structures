@@ -29,12 +29,12 @@ public class MostUsedCharacter {
 		int max=Integer.MIN_VALUE;
 		char k=' ';
 		for (Map.Entry<Character,Integer> mapElement : hm.entrySet()) {
-            char key = (char)mapElement.getKey();
-            int value=(int)mapElement.getValue();
-            if(value>max) {
-            	max=value;
-            	k=key;
-            }
+		char key = (char)mapElement.getKey();
+		int value=(int)mapElement.getValue();
+		if(value>max) {
+			max=value;
+			k=key;
+            	}
             
 		}
 		System.out.println("The maximum occuring character is: "+k);
