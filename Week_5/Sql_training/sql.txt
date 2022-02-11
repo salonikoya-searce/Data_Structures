@@ -1,0 +1,48 @@
+#-----------------------------Creating table---------------------------------------------------------------
+create table student(
+Id INT,
+Name VARCHAR(50),
+birthDate DATE,
+phone VARCHAR(12),
+Gender VARCHAR(1)
+);
+
+#-----------------------------------Inserting single value into Table------------------------------------
+insert into student(Id,Name,birthDate,phone,Gender) 
+VALUES(2,Twesha,1999-06-23,9191919191,F)
+
+#-----------------------------------Inserting multiple values into Table--------------------------------
+insert into student(Id,Name,birthDate,phone,Gender) 
+VALUES
+(3,Rutvi,1999-06-24,9292919191,F),
+(4,Manan,1994-06-23,9191919661,M),
+(5,Hiyyaan,2002-02-15,9191339191,M);
+
+#------------------------------------applying constraints ----------------------------------------------------------
+create table studentwithconstraints(
+Id INT  NOT NULL UNIQUE,
+Name VARCHAR(20) NOT NULL,
+age INT  NOT NULL CHECK(age=18),
+phone VARCHAR(20) NOT NULL UNIQUE,
+gender VARCHAR(1) NOT NULL,
+city VARCHAR(30) NOT NULL DEFAULT('AHMEDABAD')
+);
+
+#----------------------------------------Viewing table contents-----------------------------------------------------
+select  from student
+select  from studentwithconstraints
+
+
+#-----------------------------------Viewing selected fields-----------------------------------------------------
+select id,name,birthDate from student
+
+#-------------------------------Alias-----------------------------------------------------------------------
+select id as ID,name as Name,birthDate as DOB from student
+
+#--------------------------Condition based column using WHERE clause--------------------------------------------------
+select id,name,gender from student WHERE gender=F
+select id,name,gender from student WHERE name='Saloni'
+
+#-------------------------------------------------OR AND clause--------------------------------------------------
+select id,name from studentwithconstraints where age20 AND city=Ahmedabad
+select id,name from studentwithconstraints where age20 OR city=Ahmedabad
